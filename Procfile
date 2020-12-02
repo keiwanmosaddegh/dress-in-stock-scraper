@@ -1,1 +1,1 @@
-web: python scrape_dress.py
+worker: python scrape_dress.py
