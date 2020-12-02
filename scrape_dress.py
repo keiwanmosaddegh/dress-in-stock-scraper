@@ -27,4 +27,4 @@ def dress_scrape():
 starttime = time.time()
 while True:
     dress_scrape()
-    time.sleep(60.0 - ((time.time() - starttime) % 60.0))
+    time.sleep(3600.0 - ((time.time() - starttime) % 3600.0))
