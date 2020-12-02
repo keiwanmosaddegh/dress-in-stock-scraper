@@ -7,8 +7,7 @@ op.add_argument("--headless")
 op.add_argument("--no-sandbox")
 op.add_argument("--disable-dev-sh-usage")
 
-PATH = "C:\\Users\\keiwa\\Downloads\\scrape_anna\\chromedriver.exe"
-driver = webdriver.Chrome(executable_path="CHROMEDRIVER_PATH", chrome_options=op)
+driver = webdriver.Chrome(executable_path=os.environ.get('CHROMEDRIVER_PATH'), chrome_options=op)
 driver.get("https://www.stories.com/en_sek/clothing/dresses/mini-dresses/product.sheer-leopard-jacquard-mini-dress-black.0793274001.html")
 
 sizes = driver.find_element_by_id('sizes')
