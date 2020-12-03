@@ -16,6 +16,11 @@ smtp_server = "smtp.gmail.com"
 sender_email = os.environ.get("SENDER_EMAIL")
 receiver_email = os.environ.get("RECEIVER_EMAIL")
 password = os.environ.get("SENDER_PASSWORD")
+
+print(sender_email)
+print(receiver_email)
+print(password)
+
 in_stock_message = """\
 Subject: SIZE 34 IS IN STOCK!
 
