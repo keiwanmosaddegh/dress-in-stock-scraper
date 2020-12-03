@@ -62,7 +62,7 @@ def dress_scrape():
                 print("Size 34 is in stock! Sending email...")
                 send_email(in_stock_message)
 
-    if(!size_34_found):
+    if(not size_34_found):
         print("Could not find size 34. Sending email...")
         send_email(not_found_message)
 
