@@ -16,11 +16,6 @@ smtp_server = "smtp.gmail.com"
 sender_email = os.environ.get("SENDER_EMAIL")
 receiver_email = os.environ.get("RECEIVER_EMAIL")
 password = os.environ.get("SENDER_PASSWORD")
-
-print(sender_email)
-print(receiver_email)
-print(password)
-
 in_stock_message = """\
 Subject: SIZE 34 IS IN STOCK!
 
@@ -56,17 +51,21 @@ def dress_scrape():
 
     size_options = sizes.find_elements_by_class_name('size-options')
 
+    size_34_found = False
     for size_option in size_options:
         if (size_option.get_attribute('data-value') == '34'):
+            size_34_found = True
             print("Size 34 found!")
             if 'is-sold-out' in size_option.get_attribute('class'):
                 print("Size 34 is sold out!")
             else:
                 print("Size 34 is in stock! Sending email...")
                 send_email(in_stock_message)
-        else:
-            print("Could not find size 34. Sending email...")
-            send_email(not_found_message)
+
+    if(!size_34_found):
+        print("Could not find size 34. Sending email...")
+        send_email(not_found_message)
+
     driver.close()
 
 # Main
